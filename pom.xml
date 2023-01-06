@@ -49,20 +49,20 @@
 		<httpclient5.version>5.1.3</httpclient5.version>
 		<commons-codec.version>1.15</commons-codec.version> <!-- Synchronized with santuario -->
 
-		<jakarta.bind-api.version>2.3.3</jakarta.bind-api.version> <!-- Synchronized with santuario -->
-		<jakarta.activation-api.version>1.2.2</jakarta.activation-api.version> <!-- Synchronized with santuario -->
-		<jaxb-runtime.version>2.3.6</jaxb-runtime.version>
+		<jakarta.bind-api.version>4.0.0</jakarta.bind-api.version> <!-- Synchronized with santuario -->
+		<jakarta.activation-api.version>2.1.0</jakarta.activation-api.version> <!-- Synchronized with santuario -->
+		<jaxb-runtime.version>4.0.1</jaxb-runtime.version>
 
 		<!-- REST/SOAP API -->
-		<jakarta.rs-api.version>2.1.6</jakarta.rs-api.version>
-		<jakarta.ws-api.version>2.3.2</jakarta.ws-api.version>
+		<jakarta.rs-api.version>3.1.0</jakarta.rs-api.version>
+		<jakarta.ws-api.version>4.0.0</jakarta.ws-api.version>
 
 		<junit.version>5.9.1</junit.version>
 
 		<awaitility.version>4.2.0</awaitility.version>
 		<mockito.version>4.8.0</mockito.version>
 		<h2database.version>2.1.214</h2database.version>
-		<jackson.version>2.13.4</jackson.version>
+		<jackson.version>2.14.1</jackson.version>
 		<fop-core.version>2.7</fop-core.version>
 		<xml-apis.version>1.4.01</xml-apis.version> <!-- Synchronized with fop-core -->
 		<batik.version>1.15</batik.version> <!-- To be used while fop-core is not updated -->
@@ -164,6 +164,8 @@
 
 		<module>dss-jacoco-coverage</module>
 		<module>dss-bom</module>
+
+		<module>jaxb-xew-plugin</module>
     </modules>
 
 	<build>
@@ -421,9 +423,9 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<groupId>org.jvnet.jaxb2.maven2</groupId>
-					<artifactId>maven-jaxb2-plugin</artifactId>
-					<version>0.15.1</version>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>jaxb2-maven-plugin</artifactId>
+					<version>3.1.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -867,6 +869,11 @@
 				<type>test-jar</type>
 				<scope>test</scope>
 			</dependency>
+			<dependency>
+				<groupId>com.github.jaxb-xew-plugin</groupId>
+				<artifactId>jaxb-xew-plugin</artifactId>
+				<version>1.12-SNAPSHOT</version>
+			</dependency>
 
 			<!-- Public Dependencies -->
 
@@ -1035,7 +1042,7 @@
 			</dependency>
 			<dependency>
 				<groupId>com.fasterxml.jackson.module</groupId>
-				<artifactId>jackson-module-jaxb-annotations</artifactId>
+				<artifactId>jackson-module-jakarta-xmlbind-annotations</artifactId>
 				<version>${jackson.version}</version>
 			</dependency>
 

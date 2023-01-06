@@ -23,7 +23,7 @@ package eu.europa.esig.dss.validation.executor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
+import com.fasterxml.jackson.module.jakarta.xmlbind.JakartaXmlBindAnnotationIntrospector;
 import eu.europa.esig.dss.detailedreport.DetailedReport;
 import eu.europa.esig.dss.detailedreport.DetailedReportFacade;
 import eu.europa.esig.dss.detailedreport.jaxb.XmlBasicBuildingBlocks;
@@ -137,7 +137,7 @@ public class CertificateProcessExecutorTest extends AbstractTestValidationExecut
 		assertEquals(certificateId, cert.getId());
 		assertNotNull(cert.getQualificationAtIssuance());
 		assertNotNull(cert.getQualificationAtValidation());
-		assertNull(cert.getTrustAnchors());
+		assertTrue(Utils.isCollectionEmpty(cert.getTrustAnchors()));
 
 		XmlChainItem ca = simpleReportJaxb.getChain().get(1);
 		assertNull(ca.getQualificationAtIssuance());
@@ -178,7 +178,7 @@ public class CertificateProcessExecutorTest extends AbstractTestValidationExecut
 		assertEquals(certificateId, cert.getId());
 		assertNotNull(cert.getQualificationAtIssuance());
 		assertNotNull(cert.getQualificationAtValidation());
-		assertNull(cert.getTrustAnchors());
+		assertTrue(Utils.isCollectionEmpty(cert.getTrustAnchors()));
 
 		XmlChainItem ca = simpleReportJaxb.getChain().get(1);
 		assertNull(ca.getQualificationAtIssuance());
@@ -219,7 +219,7 @@ public class CertificateProcessExecutorTest extends AbstractTestValidationExecut
 		assertEquals(certificateId, cert.getId());
 		assertNotNull(cert.getQualificationAtIssuance());
 		assertNotNull(cert.getQualificationAtValidation());
-		assertNull(cert.getTrustAnchors());
+		assertTrue(Utils.isCollectionEmpty(cert.getTrustAnchors()));
 
 	}
 
@@ -877,7 +877,7 @@ public class CertificateProcessExecutorTest extends AbstractTestValidationExecut
 
 	private static ObjectMapper getObjectMapper() {
 		ObjectMapper om = new ObjectMapper();
-		JaxbAnnotationIntrospector jai = new JaxbAnnotationIntrospector(TypeFactory.defaultInstance());
+		JakartaXmlBindAnnotationIntrospector jai = new JakartaXmlBindAnnotationIntrospector(TypeFactory.defaultInstance());
 		om.setAnnotationIntrospector(jai);
 		om.enable(SerializationFeature.INDENT_OUTPUT);
 		return om;
