@@ -169,8 +169,6 @@
 
 		<module>dss-jacoco-coverage</module>
 		<module>dss-bom</module>
-
-		<module>jaxb-xew-plugin</module>
     </modules>
 
 	<build>
@@ -884,7 +882,7 @@
 			<dependency>
 				<groupId>com.github.jaxb-xew-plugin</groupId>
 				<artifactId>jaxb-xew-plugin</artifactId>
-				<version>1.12-SNAPSHOT</version>
+				<version>2.0</version>
 			</dependency>
 
 			<!-- Public Dependencies -->
