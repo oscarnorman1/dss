@@ -47,21 +47,20 @@
 		<logback-classic.version>1.4.3</logback-classic.version>
 
 		<bouncycastle.version>1.72</bouncycastle.version>
-		<xmlsec.version>2.3.2</xmlsec.version>
+		<xmlsec.version>3.0.1</xmlsec.version>
 		<jose4j.version>0.9.0</jose4j.version>
 		<pdfbox.version>2.0.27</pdfbox.version>
 		<openpdf.version>1.3.30</openpdf.version>
 		<verapdf.version>1.22.2</verapdf.version>
 		<httpclient5.version>5.1.3</httpclient5.version>
-		<commons-codec.version>1.15</commons-codec.version> <!-- Synchronized with santuario -->
 
-		<jakarta.bind-api.version>4.0.0</jakarta.bind-api.version> <!-- Synchronized with santuario -->
-		<jakarta.activation-api.version>2.1.0</jakarta.activation-api.version> <!-- Synchronized with santuario -->
+		<jakarta.bind-api.version>3.0.1</jakarta.bind-api.version> <!-- Synchronized with santuario -->
+		<jakarta.activation-api.version>2.0.1</jakarta.activation-api.version> <!-- Synchronized with santuario -->
 		<jaxb-runtime.version>4.0.1</jaxb-runtime.version>
 
 		<!-- REST/SOAP API -->
-		<jakarta.rs-api.version>3.1.0</jakarta.rs-api.version>
-		<jakarta.ws-api.version>4.0.0</jakarta.ws-api.version>
+		<jakarta.rs-api.version>3.0.0</jakarta.rs-api.version>
+		<jakarta.ws-api.version>3.0.1</jakarta.ws-api.version>
 
 		<junit.version>5.9.1</junit.version>
 

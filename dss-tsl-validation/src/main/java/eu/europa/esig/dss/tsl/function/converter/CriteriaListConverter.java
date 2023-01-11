@@ -20,11 +20,11 @@
  */
 package eu.europa.esig.dss.tsl.function.converter;
 
-import eu.europa.esig.dss.enumerations.ObjectIdentifierQualifier;
 import eu.europa.esig.dss.model.DSSException;
 import eu.europa.esig.dss.spi.DSSUtils;
 import eu.europa.esig.dss.spi.tsl.Condition;
 import eu.europa.esig.dss.tsl.dto.condition.CertSubjectDNAttributeCondition;
+import eu.europa.esig.dss.tsl.dto.condition.CompositeCondition;
 import eu.europa.esig.dss.tsl.dto.condition.ExtendedKeyUsageCondition;
 import eu.europa.esig.dss.tsl.dto.condition.KeyUsageCondition;
 import eu.europa.esig.dss.tsl.dto.condition.PolicyIdCondition;
@@ -40,13 +40,12 @@ import eu.europa.esig.trustedlist.jaxb.mra.QcStatementListType;
 import eu.europa.esig.trustedlist.jaxb.mra.QcStatementType;
 import eu.europa.esig.trustedlist.jaxb.tslx.CertSubjectDNAttributeType;
 import eu.europa.esig.trustedlist.jaxb.tslx.ExtendedKeyUsageType;
-import eu.europa.esig.dss.tsl.dto.condition.CompositeCondition;
 import eu.europa.esig.xades.jaxb.xades132.IdentifierType;
 import eu.europa.esig.xades.jaxb.xades132.ObjectIdentifierType;
+import jakarta.xml.bind.JAXBElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import jakarta.xml.bind.JAXBElement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
@@ -99,7 +98,7 @@ public class CriteriaListConverter implements Function<CriteriaListType, Conditi
 				for (ObjectIdentifierType oidType : policiesListType.getPolicyIdentifier()) {
 					IdentifierType identifier = oidType.getIdentifier();
 					if (identifier != null) {
-						String id = DSSUtils.getObjectIdentifierValue(identifier.getValue(), ObjectIdentifierQualifier.fromValue(identifier.getQualifier().value()));
+						String id = DSSUtils.getObjectIdentifierValue(identifier.getValue(), identifier.getQualifier());
 						if (Utils.isStringNotEmpty(id)) {
 							condition.addChild(new PolicyIdCondition(id));
 						}
@@ -139,7 +138,7 @@ public class CriteriaListConverter implements Function<CriteriaListType, Conditi
 						List<QcStatementType> qcStatement = qcStatementList.getQcStatement();
 						for (QcStatementType qcStatementType : qcStatement) {
 							IdentifierType qcStatementIdentifier = qcStatementType.getQcStatementId().getIdentifier();
-							String oid = DSSUtils.getObjectIdentifierValue(qcStatementIdentifier.getValue(), ObjectIdentifierQualifier.fromValue(qcStatementIdentifier.getQualifier().value()));
+							String oid = DSSUtils.getObjectIdentifierValue(qcStatementIdentifier.getValue(), qcStatementIdentifier.getQualifier());
 							String legislation = null;
 							String type = null;
 
@@ -149,7 +148,7 @@ public class CriteriaListConverter implements Function<CriteriaListType, Conditi
 								ObjectIdentifierType qcType = qcStatementInfo.getQcType();
 								if (qcType != null) {
 									IdentifierType qcTypeIdentifier = qcType.getIdentifier();
-									String id = DSSUtils.getObjectIdentifierValue(qcTypeIdentifier.getValue(), ObjectIdentifierQualifier.fromValue(qcTypeIdentifier.getQualifier().value()));
+									String id = DSSUtils.getObjectIdentifierValue(qcTypeIdentifier.getValue(), qcTypeIdentifier.getQualifier());
 									if (Utils.isStringNotEmpty(id)) {
 										type = id;
 									}
@@ -175,7 +174,7 @@ public class CriteriaListConverter implements Function<CriteriaListType, Conditi
 			for (ObjectIdentifierType objectIdentifierType : oits) {
 				IdentifierType identifier = objectIdentifierType.getIdentifier();
 				if (identifier != null) {
-					String id = DSSUtils.getObjectIdentifierValue(identifier.getValue(), ObjectIdentifierQualifier.fromValue(identifier.getQualifier().value()));
+					String id = DSSUtils.getObjectIdentifierValue(identifier.getValue(), identifier.getQualifier());
 					if (Utils.isStringNotEmpty(id)) {
 						if (DSSUtils.isOidCode(id)) {
 							oids.add(id);
