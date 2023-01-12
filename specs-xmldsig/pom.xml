@@ -89,7 +89,7 @@
 			            </goals>
 			            <configuration>
 			                <sources>
-			                    <source>${project.build.directory}/generated-sources/xjc/</source>
+			                    <source>${project.build.directory}/generated-sources/jaxb/</source>
 			                </sources>
 			            </configuration>
 			        </execution>

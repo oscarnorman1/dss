@@ -1,6 +1,11 @@
 <jaxb:bindings version="3.0"
 	xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc">
+
+	<jaxb:globalBindings>
+		<xjc:serializable uid="-1"/>
+	</jaxb:globalBindings>
 
 	<jaxb:bindings schemaLocation="XAdESv141.xsd" node="//xs:schema">
 		<jaxb:schemaBindings>

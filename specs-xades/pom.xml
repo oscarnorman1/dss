@@ -96,7 +96,7 @@
 						</goals>
 						<configuration>
 							<target>
-								<delete dir="${basedir}/target/generated-sources/xjc/eu/europa/esig/xmldsig/" />
+								<delete dir="${basedir}/target/generated-sources/jaxb/eu/europa/esig/xmldsig/" />
 							</target>
 						</configuration>
 					</execution>
@@ -115,7 +115,7 @@
 			            </goals>
 			            <configuration>
 			                <sources>
-			                    <source>${project.build.directory}/generated-sources/xjc/</source>
+			                    <source>${project.build.directory}/generated-sources/jaxb/</source>
 			                </sources>
 			            </configuration>
 			        </execution>
