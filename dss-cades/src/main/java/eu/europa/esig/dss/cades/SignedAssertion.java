@@ -81,7 +81,7 @@ public class SignedAssertion extends ASN1Object {
             throw new IllegalArgumentException("Bad sequence size: "
                     + seq.size());
         }
-        this.assertion = DERPrintableString.getInstance(seq.getObjectAt(1));
+        this.assertion = (DERPrintableString) DERPrintableString.getInstance(seq.getObjectAt(1));
     }
 
     @Override

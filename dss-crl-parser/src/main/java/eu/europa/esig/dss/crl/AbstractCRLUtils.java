@@ -123,7 +123,7 @@ public abstract class AbstractCRLUtils {
 			if ((generalNames != null) && (generalNames.getNames() != null && generalNames.getNames().length > 0)) {
 				for (GeneralName generalName : generalNames.getNames()) {
 					if (GeneralName.uniformResourceIdentifier == generalName.getTagNo()) {
-						ASN1String str = (ASN1String) ((DERTaggedObject) generalName.toASN1Primitive()).getObject();
+						ASN1String str = (ASN1String) ((DERTaggedObject) generalName.toASN1Primitive()).getBaseObject().toASN1Primitive();
 						return str.getString();
 					}
 				}

@@ -157,7 +157,7 @@ public class CAdESLevelBTest extends AbstractCAdESTestSignature {
 
 			logger.info("TAGGED OBJ : " + taggedObj.toString());
 
-			ASN1Primitive object = taggedObj.getObject();
+			ASN1Primitive object = taggedObj.getBaseObject().toASN1Primitive();
 			logger.info("OBJ : " + object.toString());
 
 			SignedData signedData = SignedData.getInstance(object);
@@ -242,7 +242,7 @@ public class CAdESLevelBTest extends AbstractCAdESTestSignature {
 
 			ASN1TaggedObject taggedContent = ASN1TaggedObject.getInstance(seqEncapsulatedInfo.getObjectAt(1));
 
-			ASN1OctetString contentOctetString = ASN1OctetString.getInstance(taggedContent.getObject());
+			ASN1OctetString contentOctetString = ASN1OctetString.getInstance(taggedContent.getBaseObject().toASN1Primitive());
 			String content = new String(contentOctetString.getOctets());
 			assertEquals(HELLO_WORLD, content);
 			logger.info("CONTENT : " + content);

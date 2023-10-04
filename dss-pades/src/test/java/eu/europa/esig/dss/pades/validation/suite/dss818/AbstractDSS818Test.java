@@ -66,7 +66,7 @@ public abstract class AbstractDSS818Test extends AbstractPAdESTestValidation {
 		try (ASN1InputStream asn1sInput = new ASN1InputStream(encoded)) {
 			ASN1Sequence asn1Seq = (ASN1Sequence) asn1sInput.readObject();
 	
-			SignedData signedData = SignedData.getInstance(ASN1TaggedObject.getInstance(asn1Seq.getObjectAt(1)).getObject());
+			SignedData signedData = SignedData.getInstance(ASN1TaggedObject.getInstance(asn1Seq.getObjectAt(1)).getBaseObject().toASN1Primitive());
 	
 			ASN1Set signerInfosAsn1 = signedData.getSignerInfos();
 			LOG.debug("SIGNER INFO ASN1 : " + signerInfosAsn1.toString());

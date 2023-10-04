@@ -72,7 +72,7 @@ public abstract class AbstractCAdESTestSignature extends AbstractPkiFactoryTestD
 		try (ASN1InputStream asn1sInput = new ASN1InputStream(encoded)) {
 			ASN1Sequence asn1Seq = (ASN1Sequence) asn1sInput.readObject();
 
-			SignedData signedData = SignedData.getInstance(DERTaggedObject.getInstance(asn1Seq.getObjectAt(1)).getObject());
+			SignedData signedData = SignedData.getInstance(DERTaggedObject.getInstance(asn1Seq.getObjectAt(1)).getBaseObject().toASN1Primitive());
 
 			ASN1Set signerInfosAsn1 = signedData.getSignerInfos();
 			SignerInfo signedInfo = SignerInfo.getInstance(ASN1Sequence.getInstance(signerInfosAsn1.getObjectAt(0)));

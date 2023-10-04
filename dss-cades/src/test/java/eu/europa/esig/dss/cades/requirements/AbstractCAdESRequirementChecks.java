@@ -82,7 +82,7 @@ public abstract class AbstractCAdESRequirementChecks extends AbstractCAdESTestSi
 			assertEquals(PKCSObjectIdentifiers.signedData, oid);
 
 			ASN1TaggedObject taggedObj = ASN1TaggedObject.getInstance(asn1Seq.getObjectAt(1));
-			SignedData signedData = SignedData.getInstance(taggedObj.getObject());
+			SignedData signedData = SignedData.getInstance(taggedObj.getBaseObject().toASN1Primitive());
 
 			ASN1Set signerInfosAsn1 = signedData.getSignerInfos();
 			assertEquals(1, signerInfosAsn1.size());

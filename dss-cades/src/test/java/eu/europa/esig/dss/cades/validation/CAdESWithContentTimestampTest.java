@@ -52,7 +52,7 @@ public class CAdESWithContentTimestampTest extends AbstractCAdESTestValidation {
 			ASN1Sequence asn1Seq = (ASN1Sequence) asn1sInput.readObject();
 
 			ASN1TaggedObject taggedObj = ASN1TaggedObject.getInstance(asn1Seq.getObjectAt(1));
-			ASN1Primitive object = taggedObj.getObject();
+			ASN1Primitive object = taggedObj.getBaseObject().toASN1Primitive();
 			SignedData signedData = SignedData.getInstance(object);
 
 			ASN1Set signerInfosAsn1 = signedData.getSignerInfos();

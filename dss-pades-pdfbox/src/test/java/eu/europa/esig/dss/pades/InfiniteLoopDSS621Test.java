@@ -166,7 +166,7 @@ public class InfiniteLoopDSS621Test {
 				ASN1ObjectIdentifier oid = ASN1ObjectIdentifier.getInstance(asn1Seq.getObjectAt(0));
 				assertEquals(PKCSObjectIdentifiers.signedData, oid);
 
-				SignedData signedData = SignedData.getInstance(ASN1TaggedObject.getInstance(asn1Seq.getObjectAt(1)).getObject());
+				SignedData signedData = SignedData.getInstance(ASN1TaggedObject.getInstance(asn1Seq.getObjectAt(1)).getBaseObject().toASN1Primitive());
 
 				ASN1Set digestAlgorithmSet = signedData.getDigestAlgorithms();
 				ASN1ObjectIdentifier oidDigestAlgo = ASN1ObjectIdentifier

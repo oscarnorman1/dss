@@ -41,7 +41,7 @@
 		<slf4j.version>1.7.31</slf4j.version>
 		<logback-classic.version>1.2.3</logback-classic.version>
 
-		<bouncycastle.version>1.69</bouncycastle.version>
+		<bouncycastle.version>1.75</bouncycastle.version>
 		<xmlsec.version>2.2.2</xmlsec.version>
 		<jose4j.version>0.7.8</jose4j.version>
 		<pdfbox.version>2.0.24</pdfbox.version>
@@ -895,12 +895,12 @@
 			</dependency>
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
-				<artifactId>bcprov-jdk15on</artifactId>
+				<artifactId>bcprov-jdk18on</artifactId>
 				<version>${bouncycastle.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
-				<artifactId>bcpkix-jdk15on</artifactId>
+				<artifactId>bcpkix-jdk18on</artifactId>
 				<version>${bouncycastle.version}</version>
 			</dependency>
 			<dependency>
@@ -1000,6 +1000,13 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+	<repositories>
+		<repository>
+			<id>cefdigital</id>
+			<name>cefdigital</name>
+			<url>https://ec.europa.eu/cefdigital/artifact/content/repositories/esignaturedss/</url>
+		</repository>
+	</repositories>
 	<issueManagement>
 		<system>JIRA</system>
 		<url>https://ec.europa.eu/cefdigital/tracker/projects/DSS</url>

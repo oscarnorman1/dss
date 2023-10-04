@@ -778,7 +778,7 @@ public final class DSSASN1Utils {
 	private static String parseGn(GeneralName gn) {
 		try {
 			if (GeneralName.uniformResourceIdentifier == gn.getTagNo()) {
-				ASN1String str = (ASN1String) ((DERTaggedObject) gn.toASN1Primitive()).getObject();
+				ASN1String str = (ASN1String) ((DERTaggedObject) gn.toASN1Primitive()).getBaseObject().toASN1Primitive();
 				return str.getString();
 			}
 		} catch (Exception e) {
