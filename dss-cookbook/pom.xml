@@ -110,7 +110,7 @@
 		                                <toc>left</toc>
 		                                <sectanchors>true</sectanchors>
 		                                <linkcss>true</linkcss>
-		    							<dssVersion>${project.version}</dssVersion>
+		    							<dssVersion>5.9</dssVersion>
 					                </attributes>
 					            </configuration>
 					        </execution>
@@ -128,7 +128,7 @@
 										<pagenums />
 										<toc />
 										<idseparator>-</idseparator>
-		    							<dssVersion>${project.version}</dssVersion>
+		    							<dssVersion>5.9</dssVersion>
 									</attributes>
 								</configuration>
 							</execution>

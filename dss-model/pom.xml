@@ -8,8 +8,10 @@
 		<artifactId>sd-dss</artifactId>
 		<version>5.9</version>
 	</parent>
-	
+
+	<groupId>org.signserver.sd-dss</groupId>
 	<artifactId>dss-model</artifactId>
+	<version>5.9signserver6.2.0</version>
 	<name>DSS Model</name>
 	<description>DSS Model contains the data model representation for DSS</description>
 	
@@ -21,6 +23,7 @@
 		<dependency>
 			<groupId>eu.europa.ec.joinup.sd-dss</groupId>
 			<artifactId>dss-enumerations</artifactId>
+			<version>5.9</version>
 		</dependency>
 		
 		<dependency>

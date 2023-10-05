@@ -9,7 +9,9 @@
 		<version>5.9</version>
 	</parent>
 
+	<groupId>org.signserver.sd-dss</groupId>
 	<artifactId>dss-spi</artifactId>
+	<version>5.9signserver6.2.0</version>
 	<name>DSS Service Provider Interface</name>
 	<description>DSS Service Provider Interface contains the contract interface shared between the applet and the server-side of DSS.</description>
 
@@ -19,16 +21,19 @@
 	
 	<dependencies>
 		<dependency>
-			<groupId>eu.europa.ec.joinup.sd-dss</groupId>
+			<groupId>org.signserver.sd-dss</groupId>
 			<artifactId>dss-model</artifactId>
+			<version>5.9signserver6.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>eu.europa.ec.joinup.sd-dss</groupId>
 			<artifactId>dss-utils</artifactId>
+			<version>5.9</version>
 		</dependency>
 		<dependency>
-			<groupId>eu.europa.ec.joinup.sd-dss</groupId>
+			<groupId>org.signserver.sd-dss</groupId>
 			<artifactId>dss-crl-parser</artifactId>
+			<version>5.9signserver6.2.0</version>
 		</dependency>
 
 		<dependency>
@@ -59,11 +64,13 @@
 		<dependency>
 			<groupId>eu.europa.ec.joinup.sd-dss</groupId>
 			<artifactId>dss-utils-apache-commons</artifactId>
+			<version>5.9</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>eu.europa.ec.joinup.sd-dss</groupId>
 			<artifactId>dss-crl-parser-x509crl</artifactId>
+			<version>5.9</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
