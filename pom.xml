@@ -1000,13 +1000,6 @@
 		</snapshotRepository>
 	</distributionManagement>
 
-	<repositories>
-		<repository>
-			<id>cefdigital</id>
-			<name>cefdigital</name>
-			<url>https://ec.europa.eu/cefdigital/artifact/content/repositories/esignaturedss/</url>
-		</repository>
-	</repositories>
 	<issueManagement>
 		<system>JIRA</system>
 		<url>https://ec.europa.eu/cefdigital/tracker/projects/DSS</url>
